@@ -1,7 +1,10 @@
 # modeladoPiramides
 Este proyecto fue realizado por:
+Javier Adrian Villa Leon A01242469
+Edmond Karam Camarena A01363677
+Jessica Gutierrez Martinez A01368909
 
-Para el curso de Gráficas Computacionales del Tec de Monterrey 
+Para el curso de Gráficas Computacionales del Tec de Monterrey (Invierno 2022), utilizando three.js
 
 En el siguiente archivo se hace una descripción de la escena presentada en este proyecto la cual consiste de:
 un escenario de desierto, en el que usaremos una textura para la arena; 
