@@ -6,11 +6,24 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xffffff, 1);
 document.body.appendChild( renderer.domElement );
 
-// Create a cube
-// var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-// var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
-// var cube = new THREE.Mesh( geometry, material );
-// scene.add( cube );
+// PIRAMIDES
+//geometria
+var geometryPiramide = new THREE.CylinderGeometry( 0, 2, 2, 4 );//(radius top, radius bottom, height, radial segments) See more parameters in docu
+//material
+const materialPiramide = new THREE.MeshBasicMaterial( {color: 0xCDAA6D} );
+
+//piramides
+const piramide1 = new THREE.Mesh( geometryPiramide, materialPiramide );
+const piramide2 = new THREE.Mesh( geometryPiramide, materialPiramide );
+const piramide3 = new THREE.Mesh( geometryPiramide, materialPiramide );
+
+//agregar a escena
+scene.add( piramide1 );
+piramide1.position.set(0,0,0);
+scene.add( piramide2 );
+piramide2.position.set(4,0,0);
+scene.add( piramide3 );
+piramide3.position.set(-4,0,0);
 
 camera.position.z = 5;
 
