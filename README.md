@@ -17,3 +17,12 @@ La ejecución de este proyecto será mediante la ejecución del archivo html que
 
 ![imagen de ejemplo](https://www.hola.com/imagenes/viajes/20200330164447/piramides-de-egipto-maravillas-desde-mi-pantalla/0-805-195/piramides-giza-egipto-t.jpg)
 
+
+El modelo 3D del camello se descargó de la pagina Turbo Squid.
+Este fue modelado por: Gabriel Bernardes
+Enlace al perfil de Gabriel: https://www.turbosquid.com/es/Search/Artists/Gabriel-Bernardes
+Enlace al modelo:
+https://www.turbosquid.com/es/3d-models/desert-animal-3d-model-1470845
+
+![imagen del modelo del camello](https://static.turbosquid.com/Preview/2020/04/12__14_38_56/searchimage.jpg25B082CF-3263-40E7-866B-EEE7954A3509Zoom.jpg![image](https://user-images.githubusercontent.com/43384976/150448038-f57e51c8-8822-4561-81ab-8978c0eef8b8.png)
+)
