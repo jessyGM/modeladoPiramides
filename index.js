@@ -17,6 +17,7 @@ camera = new THREE.PerspectiveCamera(
   1000
 );
 scene = new THREE.Scene();
+scene.background = new THREE.Color(0xece2c6);
 
 // PIRAMIDES
 //geometria
