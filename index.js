@@ -17,7 +17,27 @@ camera = new THREE.PerspectiveCamera(
   1000
 );
 scene = new THREE.Scene();
-scene.background = new THREE.Color(0xece2c6);
+//scene.background = new THREE.Color(0xece2c6);
+const loader2 = new THREE.TextureLoader();
+
+// load a resource
+loader2.load(
+	// resource URL
+	'texturas/cielo.jpg',
+
+	// onLoad callback
+	function ( texture ) {
+		// in this example we create the material when the texture is loaded
+		scene.background = texture;{
+			map: texture
+		 };
+	},
+	// onError callback
+	function ( err ) {
+		console.error( 'An error happened.' );
+	}
+);
+
 
 // PIRAMIDES
 //geometria
