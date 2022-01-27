@@ -38,6 +38,18 @@ piramide2.position.set(4, 0, 0);
 scene.add(piramide3);
 piramide3.position.set(-4, 0, 0);
 
+//PISO
+//geometria
+var geometryPiso = new THREE.BoxGeometry( 40, 0.005, 50 );
+//material
+const materialPiso = new THREE.MeshBasicMaterial({ color: 0xa9a9a9 });
+//cubo
+const piso = new THREE.Mesh(geometryPiso, materialPiso);
+//agregar a escena
+scene.add(piso);
+piso.position.set(0, -2, 1);
+
+//posicionar camara
 camera.position.z = 5;
 
 // //load model
