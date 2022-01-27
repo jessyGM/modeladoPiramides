@@ -1,0 +1,5 @@
+/* Erase margins html and body */
+html, body, *{
+    margin: 0;
+    padding: 0;
+}
