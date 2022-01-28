@@ -42,8 +42,28 @@ loader2.load(
 // PIRAMIDES
 //geometria
 var geometryPiramide = new THREE.CylinderGeometry(0, 2, 2, 4); //(radius top, radius bottom, height, radial segments) See more parameters in docu
+// load sand texture
+const loader4 = new THREE.TextureLoader();
+var pyramidtexture = loader4.load(
+	// resource URL
+  'texturas/pyramidtexture.jpg',
+
+	// onLoad callback
+	function ( pyramidtexture ) {
+		//Repetir textura sobre el polígono
+
+      pyramidtexture.wrapS = pyramidtexture.wrapT = THREE.RepeatWrapping;
+      pyramidtexture.offset.set( 0, 0 );
+      pyramidtexture.repeat.set( 20, 7 );
+		 
+	},
+	// onError callback
+	function ( err ) {
+		console.error( 'An error happened.' );
+	}
+);
 //material
-const materialPiramide = new THREE.MeshBasicMaterial({ color: 0xcdaa6d });
+const materialPiramide = new THREE.MeshBasicMaterial({ map: pyramidtexture });
 
 //piramides
 const piramide1 = new THREE.Mesh(geometryPiramide, materialPiramide);
@@ -61,8 +81,29 @@ piramide3.position.set(-4, 0, 0);
 //PISO
 //geometria
 var geometryPiso = new THREE.BoxGeometry( 40, 0.005, 50 );
+
+// load sand texture
+const loader3 = new THREE.TextureLoader();
+var sandtexture = loader3.load(
+	// resource URL
+  'texturas/sandtexture.jpg',
+
+	// onLoad callback
+	function ( sandtexture ) {
+		//Repetir textura sobre el polígono
+
+      sandtexture.wrapS = sandtexture.wrapT = THREE.RepeatWrapping;
+      sandtexture.offset.set( 0, 0 );
+      sandtexture.repeat.set( 50, 40 );
+		 
+	},
+	// onError callback
+	function ( err ) {
+		console.error( 'An error happened.' );
+	}
+);
 //material
-const materialPiso = new THREE.MeshBasicMaterial({ color: 0xa9a9a9 });
+const materialPiso = new THREE.MeshBasicMaterial({ map: sandtexture});
 //cubo
 const piso = new THREE.Mesh(geometryPiso, materialPiso);
 //agregar a escena
