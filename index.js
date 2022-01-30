@@ -41,8 +41,8 @@ loader2.load(
 
 // PIRAMIDES
 //geometria
-var geometryPiramide = new THREE.CylinderGeometry(0, 2, 2, 4); //(radius top, radius bottom, height, radial segments) See more parameters in docu
-// load sand texture
+var geometryPiramide = new THREE.CylinderGeometry(0, 1, 1.25, 4); //(radius top, radius bottom, height, radial segments) See more parameters in docu
+//PIRAMIDE CENTRAL load brick texture
 const loader4 = new THREE.TextureLoader();
 var pyramidtexture = loader4.load(
 	// resource URL
@@ -54,7 +54,7 @@ var pyramidtexture = loader4.load(
 
       pyramidtexture.wrapS = pyramidtexture.wrapT = THREE.RepeatWrapping;
       pyramidtexture.offset.set( 0, 0 );
-      pyramidtexture.repeat.set( 20, 7 );
+      pyramidtexture.repeat.set( 15, 5 );
 		 
 	},
 	// onError callback
@@ -66,17 +66,21 @@ var pyramidtexture = loader4.load(
 const materialPiramide = new THREE.MeshBasicMaterial({ map: pyramidtexture });
 
 //piramides
-const piramide1 = new THREE.Mesh(geometryPiramide, materialPiramide);
-const piramide2 = new THREE.Mesh(geometryPiramide, materialPiramide);
-const piramide3 = new THREE.Mesh(geometryPiramide, materialPiramide);
+const piramide1 = new THREE.Mesh(geometryPiramide, materialPiramide);//centro - Kefren
+const piramide2 = new THREE.Mesh(geometryPiramide, materialPiramide);//derecha - Keops
+const piramide3 = new THREE.Mesh(geometryPiramide, materialPiramide);//izquierda - Micerinos
 
 //agregar a escena
 scene.add(piramide1);
 piramide1.position.set(0, 0, 0);
+piramide1.scale.set(2.333, 2, 2);
 scene.add(piramide2);
 piramide2.position.set(4, 0, 0);
+piramide2.scale.set(2, 2, 2);
 scene.add(piramide3);
-piramide3.position.set(-4, 0, 0);
+piramide3.scale.set(0.4, 0.4, 0.4);
+piramide3.position.set(-1, 0, 3.5);
+
 
 //PISO
 //geometria
