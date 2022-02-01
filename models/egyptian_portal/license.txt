@@ -1,0 +1,11 @@
+Model Information:
+* title:	Egyptian Portal
+* source:	https://sketchfab.com/3d-models/egyptian-portal-b0ea24cabd874c4487026838dce85604
+* author:	Anabir (https://sketchfab.com/Anabir)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Egyptian Portal" (https://sketchfab.com/3d-models/egyptian-portal-b0ea24cabd874c4487026838dce85604) by Anabir (https://sketchfab.com/Anabir) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

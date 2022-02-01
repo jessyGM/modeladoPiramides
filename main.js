@@ -15,9 +15,9 @@ const camera = new THREE.PerspectiveCamera(
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Camera –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 //locate camera
-camera.position.setX(-20);
-camera.position.setY(10);
-camera.position.setZ(50);
+camera.position.setX(-55);
+camera.position.setY(15);
+camera.position.setZ(60);
 
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
@@ -539,6 +539,126 @@ function handel_loadSphinx(gltf) {
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
   esfinge.rotation.set(0, 0, 0);
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Oasis –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+
+//load oasis model
+const loaderOasis = new GLTFLoader();
+var oasis;
+loaderOasis.load("./models/egyptian_oasis/oasis.gltf", handel_loadOasis);
+
+function handel_loadOasis(gltf) {
+  oasis = gltf.scene;
+  // console.log(oasis.children[0]);
+  oasis.children[0].material = new THREE.MeshBasicMaterial({
+    map: cloudTexture,
+  });
+
+  scene.add(oasis);
+  gltf.scene.scale.set(0.007, 0.007, 0.007);
+
+  oasis.position.set(-50, 0, 30);
+  //Camel resize
+  //   camel.scale.set(0.1, 0.1, 0.1);
+  //Camel rotation
+  oasis.rotation.set(0, 5, 0);
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Astronomer –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+
+//load astronomer model
+const loaderAstronomer = new GLTFLoader();
+var astronomer;
+loaderAstronomer.load("./models/egyptian_astronomer/scene.gltf", handel_loadAstronomer);
+
+function handel_loadAstronomer(gltf) {
+  astronomer = gltf.scene;
+  // console.log(astronomer.children[0]);
+  astronomer.children[0].material = new THREE.MeshBasicMaterial({
+    map: cloudTexture,
+  });
+
+  scene.add(astronomer);
+  gltf.scene.scale.set(.1, .1, .1);
+
+  astronomer.position.set(80, 0, 0);
+  //Camel resize
+  //   camel.scale.set(0.1, 0.1, 0.1);
+  //Camel rotation
+  astronomer.rotation.set(0, 0, 0);
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Temples –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+
+//load astronomer model
+const loaderTemples = new GLTFLoader();
+var temples;
+loaderTemples.load("./models/egyptian_temples/scene.gltf", handel_loadTemples);
+
+function handel_loadTemples(gltf) {
+  temples = gltf.scene;
+  // console.log(astronomer.children[0]);
+  temples.children[0].material = new THREE.MeshBasicMaterial({
+    map: cloudTexture,
+  });
+
+  scene.add(temples);
+  gltf.scene.scale.set(.015, .015, .015);
+
+  temples.position.set(0, 0, -70);
+  //Camel resize
+  //   camel.scale.set(0.1, 0.1, 0.1);
+  //Camel rotation
+  temples.rotation.set(0, 0, 0);
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Portal –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+
+//load astronomer model
+const loaderPortal = new GLTFLoader();
+var portal;
+loaderPortal.load("./models/egyptian_portal/scene.gltf", handel_loadPorta);
+
+function handel_loadPorta(gltf) {
+  portal = gltf.scene;
+  // console.log(astronomer.children[0]);
+  portal.children[0].material = new THREE.MeshBasicMaterial({
+    map: cloudTexture,
+  });
+
+  scene.add(portal);
+  gltf.scene.scale.set(.015, .015, .015);
+
+  portal.position.set(-59, 0, 35);
+  //Camel resize
+  //   camel.scale.set(0.1, 0.1, 0.1);
+  //Camel rotation
+  portal.rotation.set(0, 3.5, 0);
+}
+
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Village –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+
+//load astronomer model
+const loaderVillage = new GLTFLoader();
+var village;
+loaderVillage.load("./models/dae_villages__ancient_egyptian_scroll_maker/scene.gltf", handel_loadVillage);
+
+function handel_loadVillage(gltf) {
+  village = gltf.scene;
+  // console.log(astronomer.children[0]);
+  village.children[0].material = new THREE.MeshBasicMaterial({
+    map: cloudTexture,
+  });
+
+  scene.add(village);
+  gltf.scene.scale.set(.008, .008, .008);
+
+  village.position.set(80, 0, 20);
+  //Camel resize
+  //   camel.scale.set(0.1, 0.1, 0.1);
+  //Camel rotation
+  village.rotation.set(0, 0, 0);
 }
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Rendering –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//

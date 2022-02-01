@@ -1,0 +1,11 @@
+Model Information:
+* title:	Egyptian Astronomer
+* source:	https://sketchfab.com/3d-models/egyptian-astronomer-41c31c7db8c2461ab0dc0e5472da41f3
+* author:	Odo (https://sketchfab.com/Odo)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Egyptian Astronomer" (https://sketchfab.com/3d-models/egyptian-astronomer-41c31c7db8c2461ab0dc0e5472da41f3) by Odo (https://sketchfab.com/Odo) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

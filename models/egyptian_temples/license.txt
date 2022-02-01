@@ -1,0 +1,11 @@
+Model Information:
+* title:	Egyptian Temples
+* source:	https://sketchfab.com/3d-models/egyptian-temples-ab516f7795684d6683188680dcb100ee
+* author:	yanix (https://sketchfab.com/yanix)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Egyptian Temples" (https://sketchfab.com/3d-models/egyptian-temples-ab516f7795684d6683188680dcb100ee) by yanix (https://sketchfab.com/yanix) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
