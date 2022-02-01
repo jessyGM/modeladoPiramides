@@ -27,3 +27,5 @@ Enlace al modelo:
 https://www.turbosquid.com/es/3d-models/desert-animal-3d-model-1470845
 
 ![imagen del modelo del camello](https://static.turbosquid.com/Preview/2020/04/12__14_38_56/searchimage.jpg25B082CF-3263-40E7-866B-EEE7954A3509Zoom.jpg)
+
+El desarrollo se encuentra en la rama "master"
