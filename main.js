@@ -23,6 +23,7 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
 });
 
+
 //controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -30,6 +31,11 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 1);
 renderer.shadowMap.enabled = true;
+renderer.shadowMap.type= THREE.PCFSoftShadowMap;
+renderer.toneMapping=THREE.ReinhardToneMapping;
+renderer.toneMappingExposure= 1.5;
+
+
 
 // //torus
 // const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
@@ -55,9 +61,33 @@ pointLigth.position.set(0, 15, 0);
 // scene.add(directionalLight);
 
 //ambient light
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-scene.add(ambientLight);
+//const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+//scene.add(ambientLight);
 
+//directional light ---SUN
+/*
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(-3,60,10);
+light.target.position.set(-50,0,0);
+light.castShadow=true;
+light.shadow.mapSize.width = 512; // default
+light.shadow.mapSize.height = 512; // default
+light.shadow.camera.near = 0.1;
+light.shadow.camera.far=100;
+scene.add(light);
+scene.add(light.target);*/
+
+//hemispherial light
+const hemispheriallight = new THREE.HemisphereLight( 0xfb9062, 0xFAD6A5, 3);
+scene.add( hemispheriallight );
+
+//Spotlight - SUN
+const spotLight = new THREE.SpotLight(0xF4E99B,3);
+spotLight.castShadow=true;
+spotLight.shadow.bias= -0.0001;
+spotLight.shadow.mapSize.width= 1024 * 4;
+spotLight.shadow.mapSize.height= 1024 * 4;
+scene.add(spotLight);
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Helpers –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 //light helper
 // const lightHelper = new THREE.PointLightHelper(pointLigth);
@@ -152,12 +182,20 @@ var pyramidtexture = loaderPyramidTexture.load(
 );
 
 //Material for pyramid
-const materialPiramide = new THREE.MeshBasicMaterial({ map: pyramidtexture });
+const materialPiramide = new THREE.MeshPhongMaterial({ map: pyramidtexture });
 
 //Create pyramids
 const piramide1 = new THREE.Mesh(geometryPiramide2, materialPiramide);
 const piramide2 = new THREE.Mesh(geometryPiramide, materialPiramide);
 const piramide3 = new THREE.Mesh(geometryPiramide3, materialPiramide);
+
+//Shadows
+piramide1.receiveShadow = true;
+piramide1.castShadow=true;
+piramide2.receiveShadow = true;
+piramide2.castShadow=true;
+piramide3.receiveShadow = true;
+piramide3.castShadow=true;
 
 //Add pyramids to scene
 scene.add(piramide1);
@@ -219,10 +257,16 @@ var cloud20 = loaderCloud.load("./models/cloud1.glb", handel_loadCloud20);
 function handel_loadCloud(gltf) {
   cloud1 = gltf.scene;
   // console.log(cloud1.children[0]);
-  cloud1.children[0].material = new THREE.MeshBasicMaterial({
+  cloud1.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud1.castShadow = true;
+  cloud1.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud1);
 
   cloud1.position.set(-100, 25, -25);
@@ -233,10 +277,16 @@ function handel_loadCloud(gltf) {
 function handel_loadCloud2(gltf) {
   cloud2 = gltf.scene;
   // console.log(cloud2.children[0]);
-  cloud2.children[0].material = new THREE.MeshBasicMaterial({
+  cloud2.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud2.castShadow = true;
+  cloud2.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud2);
 
   cloud2.position.set(-80, 35, -35);
@@ -247,10 +297,16 @@ function handel_loadCloud2(gltf) {
 function handel_loadCloud3(gltf) {
   cloud3 = gltf.scene;
   // console.log(cloud3.children[0]);
-  cloud3.children[0].material = new THREE.MeshBasicMaterial({
+  cloud3.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud3.castShadow = true;
+  cloud3.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud3);
 
   cloud3.position.set(-120, 45, -80);
@@ -261,10 +317,16 @@ function handel_loadCloud3(gltf) {
 function handel_loadCloud4(gltf) {
   cloud4 = gltf.scene;
   // console.log(cloud4.children[0]);
-  cloud4.children[0].material = new THREE.MeshBasicMaterial({
+  cloud4.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud4.castShadow = true;
+  cloud4.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud4);
 
   cloud4.position.set(-90, 15, 20);
@@ -275,10 +337,16 @@ function handel_loadCloud4(gltf) {
 function handel_loadCloud5(gltf) {
   cloud5 = gltf.scene;
   // console.log(cloud5.children[0]);
-  cloud5.children[0].material = new THREE.MeshBasicMaterial({
+  cloud5.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud5.castShadow = true;
+  cloud5.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud5);
 
   cloud5.position.set(-120, 20, -75);
@@ -289,10 +357,16 @@ function handel_loadCloud5(gltf) {
 function handel_loadCloud6(gltf) {
   cloud6 = gltf.scene;
   // console.log(cloud6.children[0]);
-  cloud6.children[0].material = new THREE.MeshBasicMaterial({
+  cloud6.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud6.castShadow = true;
+  cloud6.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud6);
 
   cloud6.position.set(-95, 15, -55);
@@ -303,10 +377,16 @@ function handel_loadCloud6(gltf) {
 function handel_loadCloud7(gltf) {
   cloud7 = gltf.scene;
   // console.log(cloud7.children[0]);
-  cloud7.children[0].material = new THREE.MeshBasicMaterial({
+  cloud7.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud7.castShadow = true;
+  cloud7.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud7);
 
   cloud7.position.set(-110, 30, -15);
@@ -317,10 +397,16 @@ function handel_loadCloud7(gltf) {
 function handel_loadCloud8(gltf) {
   cloud8 = gltf.scene;
   // console.log(cloud8.children[0]);
-  cloud8.children[0].material = new THREE.MeshBasicMaterial({
+  cloud8.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud8.castShadow = true;
+  cloud8.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud8);
 
   cloud8.position.set(-130, 25, -60);
@@ -331,10 +417,16 @@ function handel_loadCloud8(gltf) {
 function handel_loadCloud9(gltf) {
   cloud9 = gltf.scene;
   // console.log(cloud9.children[0]);
-  cloud9.children[0].material = new THREE.MeshBasicMaterial({
+  cloud9.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud9.castShadow = true;
+  cloud9.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud9);
 
   cloud9.position.set(-120, 20, -25);
@@ -345,10 +437,16 @@ function handel_loadCloud9(gltf) {
 function handel_loadCloud10(gltf) {
   cloud10 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud10.children[0].material = new THREE.MeshBasicMaterial({
+  cloud10.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud10.castShadow = true;
+  cloud10.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud10);
 
   cloud10.position.set(-130, 30, -40);
@@ -359,10 +457,16 @@ function handel_loadCloud10(gltf) {
 function handel_loadCloud11(gltf) {
   cloud11 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud11.children[0].material = new THREE.MeshBasicMaterial({
+  cloud11.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud11.castShadow = true;
+  cloud11.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud11);
 
   cloud11.position.set(0, 30, -40);
@@ -373,10 +477,16 @@ function handel_loadCloud11(gltf) {
 function handel_loadCloud12(gltf) {
   cloud12 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud12.children[0].material = new THREE.MeshBasicMaterial({
+  cloud12.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud12.castShadow = true;
+  cloud12.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud12);
 
   cloud12.position.set(-40, 30, -40);
@@ -387,10 +497,16 @@ function handel_loadCloud12(gltf) {
 function handel_loadCloud13(gltf) {
   cloud13 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud13.children[0].material = new THREE.MeshBasicMaterial({
+  cloud13.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud13.castShadow = true;
+  cloud13.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud13);
 
   cloud13.position.set(-20, 30, -70);
@@ -401,10 +517,16 @@ function handel_loadCloud13(gltf) {
 function handel_loadCloud14(gltf) {
   cloud14 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud14.children[0].material = new THREE.MeshBasicMaterial({
+  cloud14.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud14.castShadow = true;
+  cloud14.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud14);
 
   cloud14.position.set(20, 50, -40);
@@ -415,10 +537,16 @@ function handel_loadCloud14(gltf) {
 function handel_loadCloud15(gltf) {
   cloud15 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud15.children[0].material = new THREE.MeshBasicMaterial({
+  cloud15.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud15.castShadow = true;
+  cloud15.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud15);
 
   cloud15.position.set(20, 30, 10);
@@ -429,10 +557,16 @@ function handel_loadCloud15(gltf) {
 function handel_loadCloud16(gltf) {
   cloud16 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud16.children[0].material = new THREE.MeshBasicMaterial({
+  cloud16.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud16.castShadow = true;
+  cloud16.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud16);
 
   cloud16.position.set(-10, 15, 20);
@@ -443,10 +577,16 @@ function handel_loadCloud16(gltf) {
 function handel_loadCloud17(gltf) {
   cloud17 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud17.children[0].material = new THREE.MeshBasicMaterial({
+  cloud17.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud17.castShadow = true;
+  cloud17.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud17);
 
   cloud17.position.set(30, 40, -40);
@@ -457,10 +597,16 @@ function handel_loadCloud17(gltf) {
 function handel_loadCloud18(gltf) {
   cloud18 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud18.children[0].material = new THREE.MeshBasicMaterial({
+  cloud18.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud18.castShadow = true;
+  cloud18.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud18);
 
   cloud18.position.set(60, 30, 20);
@@ -471,10 +617,16 @@ function handel_loadCloud18(gltf) {
 function handel_loadCloud19(gltf) {
   cloud19 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud19.children[0].material = new THREE.MeshBasicMaterial({
+  cloud19.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud19.castShadow = true;
+  cloud19.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud19);
 
   cloud19.position.set(-40, 20, 10);
@@ -485,10 +637,16 @@ function handel_loadCloud19(gltf) {
 function handel_loadCloud20(gltf) {
   cloud20 = gltf.scene;
   // console.log(cloud10.children[0]);
-  cloud20.children[0].material = new THREE.MeshBasicMaterial({
+  cloud20.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  cloud20.castShadow = true;
+  cloud20.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(cloud20);
 
   cloud20.position.set(20, 20, -40);
@@ -506,10 +664,16 @@ loaderCamello.load("./models/camel.glb", handel_load);
 function handel_load(gltf) {
   camel = gltf.scene;
   console.log(camel.children[0]);
-  camel.children[0].material = new THREE.MeshBasicMaterial({});
+  camel.children[0].material = new THREE.MeshPhongMaterial({});
 
   scene.add(camel);
-  camel.castShadow = true;
+  camel.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
 
   camel.position.set(-20, 0, 30);
   //Camel resize
@@ -527,10 +691,16 @@ loaderSphinx.load("./models/scene.gltf", handel_loadSphinx);
 function handel_loadSphinx(gltf) {
   esfinge = gltf.scene;
   console.log(esfinge.children[0]);
-  esfinge.children[0].material = new THREE.MeshBasicMaterial({
+  esfinge.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  esfinge.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(esfinge);
   gltf.scene.scale.set(0.8, 0.8, 0.8);
 
@@ -551,10 +721,16 @@ loaderOasis.load("./models/egyptian_oasis/oasis.gltf", handel_loadOasis);
 function handel_loadOasis(gltf) {
   oasis = gltf.scene;
   // console.log(oasis.children[0]);
-  oasis.children[0].material = new THREE.MeshBasicMaterial({
+  oasis.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  oasis.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(oasis);
   gltf.scene.scale.set(0.007, 0.007, 0.007);
 
@@ -575,10 +751,16 @@ loaderAstronomer.load("./models/egyptian_astronomer/scene.gltf", handel_loadAstr
 function handel_loadAstronomer(gltf) {
   astronomer = gltf.scene;
   // console.log(astronomer.children[0]);
-  astronomer.children[0].material = new THREE.MeshBasicMaterial({
+  astronomer.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  astronomer.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(astronomer);
   gltf.scene.scale.set(.1, .1, .1);
 
@@ -599,10 +781,16 @@ loaderTemples.load("./models/egyptian_temples/scene.gltf", handel_loadTemples);
 function handel_loadTemples(gltf) {
   temples = gltf.scene;
   // console.log(astronomer.children[0]);
-  temples.children[0].material = new THREE.MeshBasicMaterial({
+  temples.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  temples.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(temples);
   gltf.scene.scale.set(.015, .015, .015);
 
@@ -623,10 +811,16 @@ loaderPortal.load("./models/egyptian_portal/scene.gltf", handel_loadPorta);
 function handel_loadPorta(gltf) {
   portal = gltf.scene;
   // console.log(astronomer.children[0]);
-  portal.children[0].material = new THREE.MeshBasicMaterial({
+  portal.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  portal.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(portal);
   gltf.scene.scale.set(.015, .015, .015);
 
@@ -647,10 +841,16 @@ loaderVillage.load("./models/dae_villages__ancient_egyptian_scroll_maker/scene.g
 function handel_loadVillage(gltf) {
   village = gltf.scene;
   // console.log(astronomer.children[0]);
-  village.children[0].material = new THREE.MeshBasicMaterial({
+  village.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-
+  village.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
   scene.add(village);
   gltf.scene.scale.set(.008, .008, .008);
 
@@ -677,6 +877,7 @@ animate();
 render();
 //funciton to render scene
 function render() {
+  
   // requestAnimationFrame(renderer);
   controls.update();
 
@@ -809,6 +1010,12 @@ function render() {
   if (camel) {
     // camel.rotation.y += 0.02;
   }
+  //moving spotlight
+  spotLight.position.set(
+    camera.position.x+50,
+    camera.position.y+50,
+    camera.position.z+50
+  );
 
   renderer.render(scene, camera);
 }
