@@ -146,7 +146,7 @@ loaderBackgroud.load(
 //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––Piso–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
 //floor geometry
-const geometryPiso = new THREE.BoxGeometry(200, 0.005, 200);
+const geometryPiso = new THREE.BoxGeometry(105, 0.005, 110);
 
 //floor material
 const loaderSandTexture = new THREE.TextureLoader();
@@ -723,12 +723,9 @@ function handel_loadSphinx(gltf) {
     }
   });
   scene.add(esfinge);
-  gltf.scene.scale.set(0.8, 0.8, 0.8);
+  gltf.scene.scale.set(0.5, 0.5, 0.5);
 
-  esfinge.position.set(-4, 5, 30);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
+  esfinge.position.set(-3, 2, 30);
   esfinge.rotation.set(0, 0, 0);
 }
 
@@ -753,12 +750,9 @@ function handel_loadOasis(gltf) {
     }
   });
   scene.add(oasis);
-  gltf.scene.scale.set(0.007, 0.007, 0.007);
+  gltf.scene.scale.set(0.005, 0.005, 0.005);
 
-  oasis.position.set(-50, 0, 30);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
+  oasis.position.set(-40, 0, 30);
   oasis.rotation.set(0, 5, 0);
 }
 
@@ -786,9 +780,9 @@ function handel_loadAstronomer(gltf) {
     }
   });
   scene.add(astronomer);
-  gltf.scene.scale.set(0.1, 0.1, 0.1);
+  gltf.scene.scale.set(0.09, 0.09, 0.09);
 
-  astronomer.position.set(80, 0, 0);
+  astronomer.position.set(40, 0, 10);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -846,9 +840,9 @@ function handel_loadPorta(gltf) {
     }
   });
   scene.add(portal);
-  gltf.scene.scale.set(0.015, 0.015, 0.015);
+  gltf.scene.scale.set(0.010, 0.010, 0.010);
 
-  portal.position.set(-59, 0, 35);
+  portal.position.set(-45, 0, 35);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -879,9 +873,9 @@ function handel_loadVillage(gltf) {
     }
   });
   scene.add(village);
-  gltf.scene.scale.set(0.008, 0.008, 0.008);
+  gltf.scene.scale.set(0.007, 0.007, 0.007);
 
-  village.position.set(80, 0, 20);
+  village.position.set(40, 0, 30);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -1066,9 +1060,9 @@ function render() {
       } else if (keyCode == 32) {
         scene.add(spotLight);
       } else if (keyCode == 38) {
-        spotLight.position.z -= 0.01;
+        spotLight.position.z -= 0.005;
       } else if (keyCode == 40) {
-        spotLight.position.z += 0.01;
+        spotLight.position.z += 0.005;
       } else if (keyCode == 37) {
         spotLight.position.x -= 0.01;
       } else if (keyCode == 39) {
