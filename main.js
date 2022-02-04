@@ -861,6 +861,215 @@ function handel_loadVillage(gltf) {
   village.rotation.set(0, 0, 0);
 }
 
+//––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Palms –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
+//load palm model
+const loaderPalm = new GLTFLoader();
+var palm1 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm);
+var palm2 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm2);
+var palm3 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm3);
+var palm4 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm4);
+var palm5 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm5);
+var palm6 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm6);
+var palm7 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm7);
+var palm8 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm8);
+var palm9 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm9);
+var palm10 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm10);
+
+
+function handel_loadPalm(gltf) {
+  palm1 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm1.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+  palm1.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm1);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm1.position.set(-45, 0, 25);
+  palm1.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm2(gltf) {
+  palm2 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm2.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+  palm2.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm2);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm2.position.set(-46, 0, 30);
+  palm2.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm3(gltf) {
+  palm3 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm3.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+  palm3.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm3);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm3.position.set(85, 0, 5);
+  palm3.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm4(gltf) {
+  palm4 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm4.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+  palm4.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm4);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm4.position.set(85, 0, 10);
+  palm4.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm5(gltf) {
+  palm5 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm5.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+  palm5.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm5);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm5.position.set(85, 0, 15);
+  palm5.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm6(gltf) {
+  palm6 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm6.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+
+  palm6.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm6);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm6.position.set(-95, 0, -70);
+  palm6.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm7(gltf) {
+  palm7 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm7.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+
+  palm7.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm7);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm7.position.set(-94, 0, -65);
+  palm7.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm8(gltf) {
+  palm8 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm8.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+
+  palm8.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm8);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm8.position.set(-95, 0, -51);
+  palm8.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm9(gltf) {
+  palm9 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm9.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+
+  palm9.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm9);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm9.position.set(-85, 0, -70);
+  palm9.rotation.set(0, 0, 0);
+}
+
+function handel_loadPalm10(gltf) {
+  palm10 = gltf.scene;
+  // console.log(astronomer.children[0]);
+  palm10.children[0].material = new THREE.MeshPhongMaterial({
+    map: cloudTexture,
+  });
+
+  palm10.traverse(n => {
+    if(n.isMesh){
+      n.castShadow = true;
+      n.receiveShadow= true;
+      if(n.material.map) n.material.map.anisotropy = 16;
+    }
+  });
+  scene.add(palm10);
+  gltf.scene.scale.set(.02, .02, .02);
+  palm10.position.set(-78, 0, -70);
+  palm10.rotation.set(0, 0, 0);
+}
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Rendering –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 //Render Animation
 function animate() {
@@ -1017,5 +1226,13 @@ function render() {
     camera.position.z+50
   );
 
+  
+  //rotating palm
+  /*if (palm){
+    if(palm.rotation.y>100){
+      palm.rotation.y =0;
+    }
+    palm.rotation.y += 0.01;
+  }*/
   renderer.render(scene, camera);
 }
