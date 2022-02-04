@@ -11,12 +11,14 @@ En el siguiente archivo se hace una descripción de la escena presentada en este
 La ejecución de este proyecto será mediante la ejecución del archivo html que se encuentra en este repositorio.
 
 Los modelos utilizados son los siguientes:
+Enlace al modelo de los templos: https://sketchfab.com/3d-models/egyptian-temples-ab516f7795684d6683188680dcb100ee#download
+Enlace al modelo de esfinge: https://sketchfab.com/3d-models/sphinx-of-hatshepsut-bf46a8a24521494ea6dadb9b91d10cf3
+Enlace al modelo de oasis1: https://sketchfab.com/3d-models/egyptian-portal-b0ea24cabd874c4487026838dce85604#download
+Enlace al modelo de oasis2: https://sketchfab.com/3d-models/egyptian-oasis-fe76c4b09d934e49ad67885cee205576#download
+Enlace al modelo de casa1: https://sketchfab.com/3d-models/dae-villages-ancient-egyptian-scroll-maker-6253367f23bf42c689ba614a1d6a835a#download
+Enlace al modelo de casa2: https://sketchfab.com/3d-models/egyptian-astronomer-41c31c7db8c2461ab0dc0e5472da41f3#download
 Enlace al modelo de la palmera: https://sketchfab.com/3d-models/palm-62cf6cedf74540229d755b0db3df381d
+Enlace a los modelos de nubes: https://www.cgtrader.com/items/644366/download-page
 
-Enlace al modelo del camello: https://www.turbosquid.com/es/3d-models/desert-animal-3d-model-1470845
-Este fue modelado por: Gabriel Bernardes Enlace al perfil de Gabriel: https://www.turbosquid.com/es/Search/Artists/Gabriel-Bernardes
-
-
-imagen del modelo del camello
 
 El desarrollo se encuentra en la rama "master"
