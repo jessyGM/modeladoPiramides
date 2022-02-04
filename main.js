@@ -125,7 +125,7 @@ loaderBackgroud.load(
 //–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––Piso–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
 //floor geometry
-const geometryPiso = new THREE.BoxGeometry(200, 0.005, 200);
+const geometryPiso = new THREE.BoxGeometry(105, 0.005, 125);
 
 //floor material
 const loaderSandTexture = new THREE.TextureLoader();
@@ -199,11 +199,11 @@ piramide3.castShadow=true;
 
 //Add pyramids to scene
 scene.add(piramide1);
-piramide1.position.set(0, 12.5, -15);
+piramide1.position.set(0, 12.5, -5);
 scene.add(piramide2);
-piramide2.position.set(35, 7, -23);
+piramide2.position.set(35, 7, -13);
 scene.add(piramide3);
-piramide3.position.set(-30, 7, 0);
+piramide3.position.set(-30, 7, 10);
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Nubes –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
@@ -702,9 +702,9 @@ function handel_loadSphinx(gltf) {
     }
   });
   scene.add(esfinge);
-  gltf.scene.scale.set(0.8, 0.8, 0.8);
+  gltf.scene.scale.set(0.5, 0.5, 0.5);
 
-  esfinge.position.set(-4, 5, 30);
+  esfinge.position.set(-4, 5, 40);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -712,7 +712,7 @@ function handel_loadSphinx(gltf) {
 }
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Oasis –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
-
+//Construcción a la izquierda de las pirámides
 //load oasis model
 const loaderOasis = new GLTFLoader();
 var oasis;
@@ -734,7 +734,7 @@ function handel_loadOasis(gltf) {
   scene.add(oasis);
   gltf.scene.scale.set(0.007, 0.007, 0.007);
 
-  oasis.position.set(-50, 0, 30);
+  oasis.position.set(-40, 0, 45);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -794,7 +794,7 @@ function handel_loadTemples(gltf) {
   scene.add(temples);
   gltf.scene.scale.set(.015, .015, .015);
 
-  temples.position.set(0, 0, -70);
+  temples.position.set(0, 0, -45);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -824,7 +824,7 @@ function handel_loadPorta(gltf) {
   scene.add(portal);
   gltf.scene.scale.set(.015, .015, .015);
 
-  portal.position.set(-59, 0, 35);
+  portal.position.set(-45, 0, 55);
   //Camel resize
   //   camel.scale.set(0.1, 0.1, 0.1);
   //Camel rotation
@@ -891,7 +891,7 @@ function handel_loadPalm(gltf) {
   });
   scene.add(palm1);
   gltf.scene.scale.set(.02, .02, .02);
-  palm1.position.set(-45, 0, 25);
+  palm1.position.set(-48, 0, 40);
   palm1.rotation.set(0, 0, 0);
 }
 
@@ -910,7 +910,7 @@ function handel_loadPalm2(gltf) {
   });
   scene.add(palm2);
   gltf.scene.scale.set(.02, .02, .02);
-  palm2.position.set(-46, 0, 30);
+  palm2.position.set(-49, 0, 45);
   palm2.rotation.set(0, 0, 0);
 }
 
@@ -987,7 +987,7 @@ function handel_loadPalm6(gltf) {
   });
   scene.add(palm6);
   gltf.scene.scale.set(.02, .02, .02);
-  palm6.position.set(-95, 0, -70);
+  palm6.position.set(-50, 0, -55);
   palm6.rotation.set(0, 0, 0);
 }
 
@@ -1007,7 +1007,7 @@ function handel_loadPalm7(gltf) {
   });
   scene.add(palm7);
   gltf.scene.scale.set(.02, .02, .02);
-  palm7.position.set(-94, 0, -65);
+  palm7.position.set(-49, 0, -50);
   palm7.rotation.set(0, 0, 0);
 }
 
@@ -1027,7 +1027,7 @@ function handel_loadPalm8(gltf) {
   });
   scene.add(palm8);
   gltf.scene.scale.set(.02, .02, .02);
-  palm8.position.set(-95, 0, -51);
+  palm8.position.set(-49, 0, -41);
   palm8.rotation.set(0, 0, 0);
 }
 
@@ -1047,7 +1047,7 @@ function handel_loadPalm9(gltf) {
   });
   scene.add(palm9);
   gltf.scene.scale.set(.02, .02, .02);
-  palm9.position.set(-85, 0, -70);
+  palm9.position.set(-45, 0, -55);
   palm9.rotation.set(0, 0, 0);
 }
 
@@ -1067,7 +1067,7 @@ function handel_loadPalm10(gltf) {
   });
   scene.add(palm10);
   gltf.scene.scale.set(.02, .02, .02);
-  palm10.position.set(-78, 0, -70);
+  palm10.position.set(-40, 0, -55);
   palm10.rotation.set(0, 0, 0);
 }
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Rendering –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
