@@ -11,13 +11,13 @@ En el siguiente archivo se hace una descripción de la escena presentada en este
 # Instrucciones para correr el proyecto
 Primero se debe de correr el comando npm install para la instalacion de dependencias necesarias <br>
 Despues para correrlo se corre el comando npm run dev <br>
-Es probable que en esta etapa haya un problema, ya que es necesario tener instalado viteJs, pero al instalar vite todo se resuelve <br>
+Es probable que en esta etapa haya un problema, ya que es necesario tener instalado viteJs, pero al instalar vite en su dispositivo todo se resuelve <br>
 
 # Controles
 En esta aplicación se utilizan los siguientes botones <br>
-Boton : Función <br>
+Botón : Función <br>
 A : Animar el amanecer <br>
-S : Animar el medio dia <br>
+S : Animar el medio día <br>
 D : Animar el atardecer <br>
 J : Subir la luz <br>
 M : Bajar la luz <br>
