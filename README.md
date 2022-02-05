@@ -9,8 +9,11 @@ En el siguiente archivo se hace una descripción de la escena presentada en este
 ![image](https://user-images.githubusercontent.com/71946314/152613087-3f3142d8-0721-46a5-a86b-175cdde3028e.png)
 
 # Instrucciones para correr el proyecto
-Primero se debe de correr el comando npm install para la instalacion de dependencias necesarias <br>
-Despues para correrlo se corre el comando npm run dev <br>
+# Servidor
+Se puede acceder al proyecto desde el siguiente enlace https://competent-swanson-e333ba.netlify.app/
+# Local
+Para ejecutar el código de manera local, una vez que se descargue el código en la rama master (la rama default en este repositorio), se debe de correr el comando npm install para la instalacion de dependencias necesarias <br>
+Después, para correrlo se ejecuta el comando npm run dev <br>
 Es probable que en esta etapa haya un problema, ya que es necesario tener instalado viteJs, pero al instalar vite en su dispositivo todo se resuelve <br>
 
 # Controles
