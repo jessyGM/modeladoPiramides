@@ -1,6 +1,6 @@
 # modeladoPiramides
 Modelado de Pirámides.
-Este proyecto fue realizado por: Javier Adrian Villa Leon A01242469 <br> Edmond Karam Camarena A01363677 <br> Jessica Gutierrez Martinez A01368909
+Este proyecto fue realizado por: <br> Javier Adrian Villa Leon A01242469 <br> Edmond Karam Camarena A01363677 <br> Jessica Gutierrez Martinez A01368909
 
 Para el curso de Gráficas Computacionales del Tec de Monterrey (Invierno 2022), utilizando three.js
 
@@ -12,6 +12,19 @@ En el siguiente archivo se hace una descripción de la escena presentada en este
 Primero se debe de correr el comando npm install para la instalacion de dependencias necesarias <br>
 Despues para correrlo se corre el comando npm run dev <br>
 Es probable que en esta etapa haya un problema, ya que es necesario tener instalado viteJs, pero al instalar vite todo se resuelve <br>
+
+# Controles
+En esta aplicación se utilizan los siguientes botones <br>
+Boton : Función <br>
+A : Animar el amanecer <br>
+S : Animar el medio dia <br>
+D : Animar el atardecer <br>
+J : Subir la luz <br>
+M : Bajar la luz <br>
+Flecha Arriba : Mover la luz hacia Z Negativa <br>
+Flecha Abajo : Mover la luz hacia Z positiva <br>
+Flecha Izquierda : Mover la luz hacia X negativa <br>
+Flecha Derecha : Mover la luz hacia X positiva <br>
 
 # Modelos Utilizados
 Los modelos utilizados son los siguientes:
@@ -56,3 +69,17 @@ Enlace a los modelos de nubes: https://www.cgtrader.com/items/644366/download-pa
 ![Captura de Pantalla 2022-02-04 a la(s) 18 46 20](https://user-images.githubusercontent.com/43384976/152621435-6e2bd824-5548-41e1-becc-16fb8f7e2113.png)
 
 <br>
+
+# Capturas de pantalla del proyecto
+![Captura de Pantalla 2022-02-04 a la(s) 18 57 48](https://user-images.githubusercontent.com/43384976/152621970-1bf30b97-21e7-4927-a00b-3400a9444f0a.png)
+<br>
+![Captura de Pantalla 2022-02-04 a la(s) 18 58 09](https://user-images.githubusercontent.com/43384976/152621988-0f000875-e237-4a27-a12e-237f06fa06a6.png)
+<br>
+![Captura de Pantalla 2022-02-04 a la(s) 18 58 36](https://user-images.githubusercontent.com/43384976/152622005-11e2b2b9-e2b2-4b42-8087-df58ae40cf67.png)
+<br>
+![Captura de Pantalla 2022-02-04 a la(s) 18 59 33](https://user-images.githubusercontent.com/43384976/152622052-d6690c00-c986-48c1-9b3b-a08a85307599.png)
+<br>
+![Captura de Pantalla 2022-02-04 a la(s) 18 59 58](https://user-images.githubusercontent.com/43384976/152622076-2be4dfdb-cc66-4ca2-a8ab-e58c17c0c3dc.png)
+
+#Video del proyecto
+https://youtu.be/edCTx5AhI3E
