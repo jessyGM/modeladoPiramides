@@ -17,7 +17,7 @@ Enlace al modelo de los templos: https://sketchfab.com/3d-models/egyptian-temple
 
 <br>
 Enlace al modelo de esfinge: https://sketchfab.com/3d-models/sphinx-of-hatshepsut-bf46a8a24521494ea6dadb9b91d10cf3
-![Captura de Pantalla 2022-02-04 a la(s) 18 42 30](https://user-images.githubusercontent.com/43384976/152621246-7368d1d5-0fee-45c1-a9ce-ab65ff9415ac.png)
+![image](https://user-images.githubusercontent.com/43384976/152621246-7368d1d5-0fee-45c1-a9ce-ab65ff9415ac.png)
 
 <br>
 Enlace al modelo de oasis1: https://sketchfab.com/3d-models/egyptian-portal-b0ea24cabd874c4487026838dce85604#download
