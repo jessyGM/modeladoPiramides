@@ -1,6 +1,6 @@
 # modeladoPiramides
 Modelado de Pirámides.
-Este proyecto fue realizado por: Javier Adrian Villa Leon A01242469 Edmond Karam Camarena A01363677 Jessica Gutierrez Martinez A01368909
+Este proyecto fue realizado por: Javier Adrian Villa Leon A01242469 <br> Edmond Karam Camarena A01363677 <br> Jessica Gutierrez Martinez A01368909
 
 Para el curso de Gráficas Computacionales del Tec de Monterrey (Invierno 2022), utilizando three.js
 
@@ -8,8 +8,12 @@ En el siguiente archivo se hace una descripción de la escena presentada en este
 
 ![image](https://user-images.githubusercontent.com/71946314/152613087-3f3142d8-0721-46a5-a86b-175cdde3028e.png)
 
-La ejecución de este proyecto será mediante la ejecución del archivo html que se encuentra en este repositorio.
+# Instrucciones para correr el proyecto
+Primero se debe de correr el comando npm install para la instalacion de dependencias necesarias <br>
+Despues para correrlo se corre el comando npm run dev <br>
+Es probable que en esta etapa haya un problema, ya que es necesario tener instalado viteJs, pero al instalar vite todo se resuelve <br>
 
+# Modelos Utilizados
 Los modelos utilizados son los siguientes:
 <br>
 Enlace al modelo de los templos: https://sketchfab.com/3d-models/egyptian-temples-ab516f7795684d6683188680dcb100ee#download
