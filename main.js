@@ -1,5 +1,6 @@
+// import css
 import "./style.css";
-
+//import three functions
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
@@ -7,6 +8,7 @@ import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 import { AmbientLight } from "three";
 // import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 
+//build the scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -28,6 +30,7 @@ const renderer = new THREE.WebGLRenderer({
 //controls
 const controls = new OrbitControls(camera, renderer.domElement);
 
+//conguration of the renderer
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 1);
@@ -48,33 +51,8 @@ const pointLigth = new THREE.PointLight(0xff0000, 1, 100);
 pointLigth.position.set(0, 30, 0);
 scene.add(pointLigth);
 
-//Directional Light
-// const directionalLight = new THREE.DirectionalLight(0xff0000, 1);
-// directionalLight.position.set(0, 30, 10);
-// directionalLight.rotateOnAxis(new THREE.Vector3(1, 0, 0), 1);
-// directionalLight.castShadow = true;
-// directionalLight.shadow.mapSize.width = 2048;
-// directionalLight.shadow.mapSize.height = 2048;
-// directionalLight.shadow.camera.near = 0.5;
-// directionalLight.shadow.camera.far = 500;
-
-// scene.add(directionalLight);
-
 //ambient light
 const ambientLight = new THREE.AmbientLight(0x121291, 4);
-
-//directional light ---SUN
-/*
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(-3,60,10);
-light.target.position.set(-50,0,0);
-light.castShadow=true;
-light.shadow.mapSize.width = 512; // default
-light.shadow.mapSize.height = 512; // default
-light.shadow.camera.near = 0.1;
-light.shadow.camera.far=100;
-scene.add(light);
-scene.add(light.target);*/
 
 //hemispherial light
 const hemispheriallight = new THREE.HemisphereLight(0xfb9062, 0xfad6a5, 3);
@@ -82,6 +60,7 @@ scene.add(hemispheriallight);
 
 //Spotlight - SUN
 const spotLight = new THREE.SpotLight(0xf4e99b, 3);
+//Add shadows to the objects
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 spotLight.shadow.mapSize.width = 1024 * 4;
@@ -89,6 +68,7 @@ spotLight.shadow.mapSize.height = 1024 * 4;
 scene.add(spotLight);
 spotLight.position.set(0, 100, 0);
 
+//Build Gui
 class ColorGUIHelper {
   constructor(object, prop) {
     this.object = object;
@@ -104,7 +84,6 @@ class ColorGUIHelper {
 
 const color = 0xffffff;
 const intensity = 1;
-
 const gui = new GUI();
 gui.addColor(new ColorGUIHelper(spotLight, "color"), "value").name("color");
 gui.add(spotLight, "intensity", 0, 20, 0.01);
@@ -167,7 +146,7 @@ var sandtexture = loaderSandTexture.load(
     console.error("An error happened.");
   }
 );
-
+// build floor with configuration
 const materialPiso = new THREE.MeshStandardMaterial({ map: sandtexture });
 const piso = new THREE.Mesh(geometryPiso, materialPiso);
 piso.position.set(0, -1, 0);
@@ -676,7 +655,7 @@ function handel_loadCloud20(gltf) {
 }
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Esfinge –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
-//load model
+//load model sphynx
 const loaderSphinx = new GLTFLoader();
 var esfinge;
 loaderSphinx.load("./models/scene.gltf", handel_loadSphinx);
@@ -693,9 +672,10 @@ function handel_loadSphinx(gltf) {
       if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  // Add sphyx to scene
   scene.add(esfinge);
+  //Sphynx configuration
   gltf.scene.scale.set(0.5, 0.5, 0.5);
-
   esfinge.position.set(-3, 2, 30);
   esfinge.rotation.set(0, 0, 0);
 }
@@ -750,13 +730,10 @@ function handel_loadAstronomer(gltf) {
       if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add astronomer to scene with configuration
   scene.add(astronomer);
   gltf.scene.scale.set(0.09, 0.09, 0.09);
-
   astronomer.position.set(40, 0, 10);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
   astronomer.rotation.set(0, 0, 0);
 }
 
@@ -780,26 +757,23 @@ function handel_loadTemples(gltf) {
       if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add astronomer to scene with configuration
   scene.add(temples);
   gltf.scene.scale.set(0.015, 0.015, 0.015);
-
   temples.position.set(0, 0, -45);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
   temples.rotation.set(0, 0, 0);
 }
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Portal –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
-//load astronomer model
+//load portal model
 const loaderPortal = new GLTFLoader();
 var portal;
 loaderPortal.load("./models/egyptian_portal/scene.gltf", handel_loadPorta);
 
 function handel_loadPorta(gltf) {
   portal = gltf.scene;
-  // console.log(astronomer.children[0]);
+  // console.log(portal.children[0]);
   portal.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
@@ -810,19 +784,16 @@ function handel_loadPorta(gltf) {
       if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add portal to scene with configuration
   scene.add(portal);
-  gltf.scene.scale.set(0.010, 0.010, 0.010);
-
+  gltf.scene.scale.set(0.01, 0.01, 0.01);
   portal.position.set(-45, 0, 35);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
   portal.rotation.set(0, 3.5, 0);
 }
 
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Village –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
 
-//load astronomer model
+//load village model
 const loaderVillage = new GLTFLoader();
 var village;
 loaderVillage.load(
@@ -832,7 +803,7 @@ loaderVillage.load(
 
 function handel_loadVillage(gltf) {
   village = gltf.scene;
-  // console.log(astronomer.children[0]);
+  // console.log(village.children[0]);
   village.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
@@ -843,13 +814,10 @@ function handel_loadVillage(gltf) {
       if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add village to scene with configuration
   scene.add(village);
   gltf.scene.scale.set(0.007, 0.007, 0.007);
-
   village.position.set(40, 0, 30);
-  //Camel resize
-  //   camel.scale.set(0.1, 0.1, 0.1);
-  //Camel rotation
   village.rotation.set(0, 0, 0);
 }
 
@@ -867,22 +835,21 @@ var palm8 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm8);
 var palm9 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm9);
 var palm10 = loaderPalm.load("./models/palm/scene.gltf", handel_loadPalm10);
 
-
 function handel_loadPalm(gltf) {
   palm1 = gltf.scene;
-  // console.log(astronomer.children[0]);
+  // console.log(palm1.children[0]);
   palm1.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  palm1.traverse(n => {
-    if(n.isMesh){
+  palm1.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
   scene.add(palm1);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm1.position.set(-48, 0, 40);
   palm1.rotation.set(0, 0, 0);
 }
@@ -893,172 +860,172 @@ function handel_loadPalm2(gltf) {
   palm2.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  palm2.traverse(n => {
-    if(n.isMesh){
+  palm2.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm2);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm2.position.set(-49, 0, 45);
   palm2.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm3(gltf) {
   palm3 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm3.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  palm3.traverse(n => {
-    if(n.isMesh){
+  palm3.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
   scene.add(palm3);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm3.position.set(45, 0, 15);
   palm3.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm4(gltf) {
   palm4 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm4.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  palm4.traverse(n => {
-    if(n.isMesh){
+  palm4.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm4);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm4.position.set(45, 0, 20);
   palm4.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm5(gltf) {
   palm5 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm5.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
-  palm5.traverse(n => {
-    if(n.isMesh){
+  palm5.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm5);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm5.position.set(45, 0, 25);
   palm5.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm6(gltf) {
   palm6 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm6.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
 
-  palm6.traverse(n => {
-    if(n.isMesh){
+  palm6.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm6);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm6.position.set(-50, 0, -55);
   palm6.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm7(gltf) {
   palm7 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm7.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
 
-  palm7.traverse(n => {
-    if(n.isMesh){
+  palm7.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm7);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm7.position.set(-49, 0, -50);
   palm7.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm8(gltf) {
   palm8 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm8.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
 
-  palm8.traverse(n => {
-    if(n.isMesh){
+  palm8.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm8);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm8.position.set(-49, 0, -41);
   palm8.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm9(gltf) {
   palm9 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm9.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
 
-  palm9.traverse(n => {
-    if(n.isMesh){
+  palm9.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm9);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm9.position.set(-45, 0, -55);
   palm9.rotation.set(0, 0, 0);
 }
 
 function handel_loadPalm10(gltf) {
   palm10 = gltf.scene;
-  // console.log(astronomer.children[0]);
   palm10.children[0].material = new THREE.MeshPhongMaterial({
     map: cloudTexture,
   });
 
-  palm10.traverse(n => {
-    if(n.isMesh){
+  palm10.traverse((n) => {
+    if (n.isMesh) {
       n.castShadow = true;
-      n.receiveShadow= true;
-      if(n.material.map) n.material.map.anisotropy = 16;
+      n.receiveShadow = true;
+      if (n.material.map) n.material.map.anisotropy = 16;
     }
   });
+  //Add palm to scene with configuration
   scene.add(palm10);
-  gltf.scene.scale.set(.02, .02, .02);
+  gltf.scene.scale.set(0.02, 0.02, 0.02);
   palm10.position.set(-40, 0, -55);
   palm10.rotation.set(0, 0, 0);
 }
@@ -1066,9 +1033,6 @@ function handel_loadPalm10(gltf) {
 //Render Animation
 function animate() {
   requestAnimationFrame(animate);
-  // torus.rotation.x += 0.01;
-  // torus.rotation.y += 0.005;
-  // torus.rotation.z += 0.01;
   render();
 }
 //animate
@@ -1080,12 +1044,10 @@ render();
 function render() {
   // requestAnimationFrame(renderer);
   controls.update();
-
   //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Clouds Rendering –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
-
+  //relocate clouds
+  //randomize cloud position between -150 and -100 if it is above of 120
   if (cloud1) {
-    //relocate clouds
-    //randomize cloud position between -150 and -100 if it is above of 120
     if (cloud1.position.x > 120) {
       cloud1.position.x = -110;
     }
@@ -1206,62 +1168,72 @@ function render() {
     cloud20.position.x += 0.06;
   }
 
-  //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Clouds Rendering –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
-  //moving spotlight
-  // spotLight.position.set(
-  //   camera.position.x + 50,
-  //   camera.position.y + 50,
-  //   camera.position.z + 50
-  // );
-
+  //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– Light Scenes –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––//
   if (gui) {
-    // camel.rotation.y += 0.01;
+    //Add listener to the light scene
     document.addEventListener("keydown", onDocumentKeyDown, false);
     function onDocumentKeyDown(event) {
       var keyCode = event.which;
+      //if A key is pressed
       if (keyCode == 65) {
+        //Position spotlight to the left and change the color
+        //Sunrise
         spotLight.color = new THREE.Color(0xff0000);
         spotLight.intensity = 50;
         spotLight.position.set(-150, 30, -0);
         scene.remove(ambientLight);
-      } else if (keyCode == 83) {
+      }
+      //if S key is pressed
+      else if (keyCode == 83) {
+        //Position spotlight to the the center and change the color
+        //Mid Day
         spotLight.color = new THREE.Color(0xf4e94b);
         spotLight.position.set(0, 100, -0);
         spotLight.intensity = 2;
         scene.remove(ambientLight);
-      } else if (keyCode == 68) {
+      }
+      //if D key is pressed
+      else if (keyCode == 68) {
+        //Position spotlight to the right and change the color
+        //Sunset
         spotLight.color = new THREE.Color(0xff0000);
         spotLight.position.set(150, 30, 0);
         spotLight.intensity = 20;
-
         ambientLight.intensity = 2;
         scene.add(ambientLight);
         scene.remove(pointLigth);
-      } else if (keyCode == 32) {
-        scene.add(spotLight);
-      } else if (keyCode == 38) {
+      }
+      //if arrow up key is pressed
+      else if (keyCode == 38) {
+        //move the spotlight to the back
         spotLight.position.z -= 0.005;
-      } else if (keyCode == 40) {
+      }
+      //if arrow down key is pressed
+      else if (keyCode == 40) {
+        //move the spotlight to the front
         spotLight.position.z += 0.005;
-      } else if (keyCode == 37) {
+      }
+      //if arrow left key is pressed
+      else if (keyCode == 37) {
+        //move the spotlight to the left
         spotLight.position.x -= 0.01;
-      } else if (keyCode == 39) {
+      }
+      //if arrow right key is pressed
+      else if (keyCode == 39) {
+        //move the spotlight to the right
         spotLight.position.x += 0.01;
-      } else if (keyCode == 74) {
+      }
+      //if J key is pressed
+      else if (keyCode == 74) {
+        //move the spotlight up
         spotLight.position.y += 0.01;
-      } else if (keyCode == 77) {
+      }
+      //if M key is pressed
+      else if (keyCode == 77) {
+        //move the spotlight down
         spotLight.position.y -= 0.01;
       }
     }
   }
-
-  
-  //rotating palm
-  /*if (palm){
-    if(palm.rotation.y>100){
-      palm.rotation.y =0;
-    }
-    palm.rotation.y += 0.01;
-  }*/
   renderer.render(scene, camera);
 }
