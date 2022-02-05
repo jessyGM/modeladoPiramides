@@ -13,6 +13,7 @@ La ejecución de este proyecto será mediante la ejecución del archivo html que
 Los modelos utilizados son los siguientes:
 <br>
 Enlace al modelo de los templos: https://sketchfab.com/3d-models/egyptian-temples-ab516f7795684d6683188680dcb100ee#download
+<iframe title="Egyptian Temples" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ab516f7795684d6683188680dcb100ee/embed"> </iframe>
 <br>
 Enlace al modelo de esfinge: https://sketchfab.com/3d-models/sphinx-of-hatshepsut-bf46a8a24521494ea6dadb9b91d10cf3
 <br>
